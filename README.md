@@ -1,4 +1,4 @@
-# Windows Machine File Copy Task (WinRM)
+# Deploy SSIS Task (WinRM)
 ### Overview
 The task is used to copy application files and other artifacts that are required to install the application on Windows Machines like PowerShell scripts, PowerShell-DSC modules etc. The task provides the ability to copy files to Windows Machines. The tasks uses WinRM for the data transfer.
 

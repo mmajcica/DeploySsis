@@ -1,10 +1,10 @@
 {
   "manifestVersion": 1,
-  "extensionId": "win-rm-file-copy",
-  "name": "WinRm File Copy",
+  "extensionId": "deploy-ssis",
+  "name": "Deploy SSIS",
   "version": "1.0.3",
   "publisher": "mmajcica",
-  "description": "Windows Machine File Copy (WinRM)",
+  "description": "Deploy SSIS packages",
   "public": false,
   "galleryFlags": [
     "Public"
@@ -17,17 +17,17 @@
     "Build and release"
   ],
   "tags": [
-    "copy",
-    "windows",
-    "winrm",
-    "file"
+    "SQL Server Integration Services",
+    "SSIS",
+    "SQL",
+    "ispac"
   ],
   "links": {
     "home": {
       "uri": "http://blog.majcica.com/"
     },
     "support": {
-      "uri": "http://blog.majcica.com/2017/12/01/using-windows-machine-file-copy-winrm-vsts-extension"
+      "uri": "http://blog.majcica.com/2018/01/11/deploy-ssis-pack…ts-build-release/"
     },
     "repository": {
         "uri": "https://github.com/mmajcica/win-rm-file-copy"

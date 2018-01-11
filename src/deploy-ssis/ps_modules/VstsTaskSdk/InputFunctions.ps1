@@ -357,7 +357,7 @@ function Get-Value {
 
 function Initialize-Inputs {
     # Store endpoints, inputs, and secret variables in the vault.
-    foreach ($variable in (Get-ChildItem -Path Env:ENDPOINT_?*, Env:INPUT_?*, Env:SECRET_?*, Env:SECUREFILE_?*)) {
+    foreach ($variable in (Get-ChildItem -Path Env:ENDPOINT_?*, Env:INPUT_?*, Env:SECRET_?*)) {
         # Record the secret variable metadata. This is required by Get-TaskVariable to
         # retrieve the value. In a 2.104.1 agent or higher, this metadata will be overwritten
         # when $env:VSTS_SECRET_VARIABLES is processed.
