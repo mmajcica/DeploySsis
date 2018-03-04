@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "extensionId": "deploy-ssis",
   "name": "Deploy SSIS",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "publisher": "mmajcica",
   "description": "Deploy SSIS packages",
   "public": false,
@@ -27,18 +27,18 @@
       "uri": "http://blog.majcica.com/"
     },
     "support": {
-      "uri": "http://blog.majcica.com/2018/01/11/deploy-ssis-pack…ts-build-release/"
+      "uri": "http://blog.majcica.com/2018/02/26/deploy-ssis-packages-from-tfs-vsts-build-release/"
     },
     "repository": {
-        "uri": "https://github.com/mmajcica/win-rm-file-copy"
+        "uri": "https://github.com/mmajcica/DeploySsis"
     },
     "issues": {
-        "uri": "https://github.com/mmajcica/win-rm-file-copy/issues"
+        "uri": "https://github.com/mmajcica/DeploySsis/issues"
     }
   },
   "repository": {
       "type": "git",
-      "uri": "https://github.com/mmajcica/win-rm-file-copy"
+      "uri": "https://github.com/mmajcica/DeploySsis"
   },
   "branding": {
     "color": "#e9ebed",
@@ -51,7 +51,8 @@
   ],
   "content": {
     "details": {
-      "path": "README.md"
+      "path": "README.md",
+      "license": { "path": "LICENSE.txt" }
     }
   },
   "files": [
@@ -60,7 +61,7 @@
       "addressable": true
     },
     {
-      "path": "win-rm-file-copy"
+      "path": "task"
     }
   ],
   "targets": [
@@ -70,13 +71,13 @@
   ],
   "contributions": [
     {
-      "id": "win-rm-file-copy",
+      "id": "DeployIsPacs",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "win-rm-file-copy"
+        "name": "task"
       }
     }
   ]
