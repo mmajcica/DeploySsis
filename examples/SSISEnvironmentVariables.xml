@@ -25,7 +25,7 @@
 			<variable>
 				<name>MaxFilesToLoad</name>
 				<type>Int32</type>
-				<value>{{MaxFilesToLoad}}</value>
+				<value>5</value>
 				<sensitive>false</sensitive>
 				<description>Max Files To Load by dispatcher </description>
 			</variable>

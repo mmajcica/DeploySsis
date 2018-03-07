@@ -63,7 +63,7 @@
           "windowsAuthentication": "Windows Authentication",
           "sqlServerAuthentication": "SQL Server Authentication"
       },
-      "helpMarkDown": "Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, the administrator's account, as specified in the Machines section, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and Password have to be provided in the parameters below."
+      "helpMarkDown": "Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, build service account, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and Password have to be provided in the parameters below."
     },
     {
       "groupName":"server",
@@ -91,7 +91,7 @@
       "type": "boolean",
       "label": "Shared Catalog",
       "required": false,
-      "defaultValue": "",
+      "defaultValue": "true",
       "helpMarkDown": "If catalog is shared, it will not be dropped durig the deployment."
     },
     {
@@ -120,7 +120,7 @@
       "label": "Environment definition file",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": ""
+      "helpMarkDown": "Path to the configuration file."
     }
   ],
   "execution": {
