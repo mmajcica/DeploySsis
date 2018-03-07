@@ -75,6 +75,14 @@ The same values can be passed in also as a json file with the following structur
   {
     "name": "CRDW",
     "description": "CRDW Environments",
+    "referenceOnProjects": [
+      {
+        "name": "BusinessDataVault"
+      },
+      {
+        "name": "Configuration"
+      }
+    ],
     "variables": [
       {
         "name": "CLIENTToDropbox",

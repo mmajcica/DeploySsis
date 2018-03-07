@@ -1,22 +1,30 @@
 [
-    {
-      "name": "CRDW",
-      "description": "CRDW Environments",
-      "variables": [
-        {
-          "name": "CLIENTToDropbox",
-          "type": "Boolean",
-          "value": "1",
-          "sensitive": "false",
-          "description": ""
-        },
-        {
-          "name": "MaxFilesToLoad",
-          "type": "Int32",
-          "value": "31",
-          "sensitive": "false",
-          "description": "Max Files To Load by dispatcher"
-        }
-      ]
-    }
-  ]
+  {
+    "name": "CRDW",
+    "description": "CRDW Environments",
+    "referenceOnProjects": [
+      {
+        "name": "BusinessDataVault"
+      },
+      {
+        "name": "Configuration"
+      }
+    ],
+    "variables": [
+      {
+        "name": "CLIENTToDropbox",
+        "type": "Boolean",
+        "value": "1",
+        "sensitive": "false",
+        "description": ""
+      },
+      {
+        "name": "MaxFilesToLoad",
+        "type": "Int32",
+        "value": "31",
+        "sensitive": "false",
+        "description": "Max Files To Load by dispatcher"
+      }
+    ]
+  }
+]

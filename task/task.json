@@ -117,7 +117,7 @@
       "groupName":"variables",
       "name": "environmentsFilePath",
       "type": "filePath",
-      "label": "Environment definition file",
+      "label": "Environments configuration file",
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Path to the configuration file."
