@@ -14,12 +14,13 @@ try
     $sharedCatalog = Get-VstsInput -Name "sharedCatalog" -AsBool
     $folderName = Get-VstsInput -Name "folderName" -Require
     $environmentsFilePath = Get-VstsInput -Name "environmentsFilePath"
-    $configType = Get-VstsInput -Name "configType" -Require
     $defaultWorkingDir = Get-VstsTaskVariable -Name "system.defaultworkingdirectory"
 
     $CatalogName = "SSISDB" # Catalog name is a constant
 
-    Import-Module -Name $PSScriptRoot\ps_modules\ispac.psd1
+    [Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | Out-Null
+    [Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices") | Out-Null
+    Import-Module -Name $PSScriptRoot\ps_modules\ispac.psm1
 
     Write-Verbose "Finding files with pattern $ispacFilePath"
     $found = Find-VstsFiles -LegacyPattern "$ispacFilePath"
@@ -59,7 +60,8 @@ try
         throw "No ISPAC'S found using search pattern '$ispacFilePath'."
     }
 
-    Write-Output "Matched files = $ispacs"
+    Write-Output "Matched files:"
+    $ispacs | ForEach-Object { $_.FullName } | Write-Output
 
     Write-Output "Checking CLR on the SQL Server ...."
     Test-SqlClrEnabled $InstanceName
@@ -81,14 +83,23 @@ try
 
     $ispacs | Add-SsisProject $connectionString $CatalogName $folderName
 
-    if ($environmentsFilePath -ne $defaultWorkingDir)
+    if ($environmentsFilePath -ne $defaultWorkingDir) #meaning that, if the value is supplied, go for it
     {
-        $settings = Get-Config -FilePath $environmentsFilePath -ConfigurationType $configType
+        $configurationFile = [System.IO.FileInfo]$environmentsFilePath
 
-        foreach($environment in $settings.environments)
+        if ($configurationFile.Exists -and $configurationFile.Extension -in (".xml", ".json"))
         {
-            New-SsisEnvironment $connectionString $CatalogName $folderName $environment.name $environment.description $environment.ReferenceOnProjects
-            Set-SsisEnvironmentVariables $connectionString $CatalogName $folderName $environment.name $environment.variables $environment.ReferenceOnProjects
+            $settings = Get-Config -FilePath $environmentsFilePath
+
+            foreach($environment in $settings.environments)
+            {
+                New-SsisEnvironment $connectionString $CatalogName $folderName $environment.name $environment.description $environment.ReferenceOnProjects
+                Set-SsisEnvironmentVariables $connectionString $CatalogName $folderName $environment.name $environment.variables $environment.ReferenceOnProjects
+            }
+        }
+        else
+        {
+            throw "Specified configuration file '$environmentsFilePath' is not valid."
         }
     }
 }

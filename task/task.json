@@ -6,12 +6,22 @@
   "author": "Mario Majcica",
   "groups": [
     {
+      "displayName": "Server",
+      "isExpanded": true,
+      "name": "server"
+    },
+    {
+      "displayName": "SSIS",
+      "isExpanded": true,
+      "name": "SSIS"
+    },
+    {
         "displayName": "Environment variables",
         "isExpanded": false,
         "name": "variables"
     }
   ],
-  "helpMarkDown": "Replace with markdown to show in help",
+  "helpMarkDown": "Deploy SSIS ISPACs on your server togheter with environment variables.",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -19,11 +29,11 @@
   ],
   "demands": [],
   "version": {
-    "Major": "2",
+    "Major": "3",
     "Minor": "1",
-    "Patch": "19"
+    "Patch": "3"
   },
-  "minimumAgentVersion": "1.95.0",
+  "minimumAgentVersion": "1.95.1",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
   "inputs": [
     {
@@ -35,6 +45,7 @@
       "helpMarkDown": "Location of the ISPAC file or on a UNC path like, \\\\\\\\BudgetIT\\Web\\Deploy\\FabrikamDB.ispac. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like $env:windir, $env:systemroot, $env:windir\\FabrikamFibre\\DB. Wildcards can be used. For example, `**/*.ispac` for ISPAC file present in all sub folders."
     },
     {
+      "groupName":"server",
       "name": "ServerName",
       "type": "string",
       "label": "Server Name",
@@ -42,6 +53,7 @@
       "helpMarkDown": "Provide the SQL Server name like, machinename\\FabriakmSQL,1433 or localhost or .\\SQL2012R2. Specifying localhost will connect to the Default SQL Server instance on the machine."
     },
     {
+      "groupName":"server",
       "name": "AuthScheme",
       "type": "pickList",
       "label": "Authentication",
@@ -54,6 +66,7 @@
       "helpMarkDown": "Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, the administrator's account, as specified in the Machines section, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and Password have to be provided in the parameters below."
     },
     {
+      "groupName":"server",
       "name": "SqlUsername",
       "type": "string",
       "label": "SQL User name",
@@ -63,6 +76,7 @@
       "helpMarkDown": "Provide the SQL login to connect to the SQL Server. The option is only available if SQL Server Authentication mode has been selected."
     },
     {
+      "groupName":"server",
       "name": "SqlPassword",
       "type": "string",
       "label": "SQL Password",
@@ -72,14 +86,7 @@
       "helpMarkDown": "Provide the Password of the SQL login. The option is only available if SQL Server Authentication mode has been selected."
     },
     {
-      "name": "catalogPassword",
-      "type": "string",
-      "label": "Catalog Password",
-      "required": true,
-      "defaultValue": "",
-      "helpMarkDown": "Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key."
-    },
-    {
+      "groupName":"SSIS",
       "name": "sharedCatalog",
       "type": "boolean",
       "label": "Shared Catalog",
@@ -88,6 +95,17 @@
       "helpMarkDown": "If catalog is shared, it will not be dropped durig the deployment."
     },
     {
+      "groupName":"SSIS",
+      "name": "catalogPassword",
+      "type": "string",
+      "label": "Catalog Password",
+      "visibleRule": "sharedCatalog = false",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": "Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key."
+    },
+    {
+      "groupName":"SSIS",
       "name": "folderName",
       "type": "string",
       "label": "SSIS folder Name",
@@ -102,19 +120,6 @@
       "label": "Environment definition file",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": ""
-    },
-    {
-      "groupName":"variables",
-      "name": "configType",
-      "type": "pickList",
-      "label": "Definition file type",
-      "required": true,
-      "defaultValue": "XML",
-      "options": {
-          "JSON": "JSON",
-          "XML": "XML"
-      },
       "helpMarkDown": ""
     }
   ],

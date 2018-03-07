@@ -74,8 +74,7 @@ function Get-Config()
     [CmdletBinding()]
     param
     (
-        [string][parameter(Mandatory = $true)]$FilePath,
-        [string][parameter(Mandatory = $true)]$ConfigurationType
+        [System.IO.FileInfo][parameter(Mandatory = $true)]$FilePath
     )
     BEGIN
     {
@@ -87,7 +86,7 @@ function Get-Config()
     {
         $settings = @{ environments = @()}
 
-        if ($ConfigurationType -eq "XML")
+        if ($FilePath.Extension -eq ".xml")
         {
             [xml]$file = Get-Content $FilePath
             
@@ -103,17 +102,23 @@ function Get-Config()
 
             return $settings
         }
-
-        $environments = Get-Content -Path $FilePath | ConvertFrom-Json
-
-        if ($environments)
+        elseif ($FilePath.Extension -eq ".json")
         {
-            Write-Verbose "Found $($environments.Count) enironment definitions in the environments files $FilePath"
-    
-            foreach($environment in $environments)
+            $environments = Get-Content -Path $FilePath | ConvertFrom-Json
+
+            if ($environments)
             {
-                $settings.environments += @{ Name = $environment.name; Description = $environment.description; ReferenceOnProjects = $environment.referenceOnProjects; Variables =  $environment.variables }
+                Write-Verbose "Found $($environments.Count) environment definitions in the environments files $FilePath"
+        
+                foreach($environment in $environments)
+                {
+                    $settings.environments += @{ Name = $environment.name; Description = $environment.description; ReferenceOnProjects = $environment.referenceOnProjects; Variables =  $environment.variables }
+                }
             }
+        }
+        else
+        {
+            throw "Invalid configuration file type."
         }
 
         return $settings
