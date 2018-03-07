@@ -17,7 +17,7 @@ For this task to run you will need "Microsoft.SqlServer.Smo", "Microsoft.SqlServ
 * **Shared Catalog**: If not selected, prior the deployment of your packages, the catalog will be dropped. If marked as shared (e.g. in case it is used by other applications), the catalog will not be dropped and extra checks will be made during the deployment.
 * **Catalog Password**: Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key. This option is only available if Shared Catalog is not set.
 * **SSIS folder Name**: Folder name in the SSIS Package Store.
-* **Environment definition file**: Path to the configuration file. Wildcards are not allowed.
+* **Environment configuration file**: Path to the configuration file. Wildcards are not allowed.
 
 
 ### Example of the configuration file
