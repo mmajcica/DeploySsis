@@ -19,7 +19,6 @@ For this task to run you will need "Microsoft.SqlServer.Smo", "Microsoft.SqlServ
 * **SSIS folder Name**: Folder name in the SSIS Package Store.
 * **Environment configuration file**: Path to the configuration file. Wildcards are not allowed.
 
-
 ### Example of the configuration file
 
 Following an example of the configuration file.
