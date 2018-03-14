@@ -10,7 +10,7 @@ try
     $authScheme = Get-VstsInput -Name "authscheme" -Require
     $sqlUsername = Get-VstsInput -Name "sqlUsername"
     $sqlPassword = Get-VstsInput -Name "sqlPassword"
-    $catalogPassword = Get-VstsInput -Name "catalogPassword" -Require
+    $catalogPassword = Get-VstsInput -Name "catalogPassword"
     $sharedCatalog = Get-VstsInput -Name "sharedCatalog" -AsBool
     $folderName = Get-VstsInput -Name "folderName" -Require
     $environmentsFilePath = Get-VstsInput -Name "environmentsFilePath"

@@ -174,7 +174,7 @@ function New-SsisCatalog()
     (
         [string][parameter(Mandatory = $true)]$ConnectionString,
         [string][parameter(Mandatory = $true)]$CatalogName,
-        [string][parameter(Mandatory = $true)]$CatalogPassword,
+        [string][parameter()]$CatalogPassword,
         [bool]$SharedCatalog = $true
     )
     BEGIN
@@ -193,6 +193,11 @@ function New-SsisCatalog()
         {
             Write-Verbose "Dropping existing SSIS Catalog $CatalogName on the server $InstanceName"
             $is.Catalogs[$CatalogName].Drop()
+        }
+        else
+        {
+            Write-Warning "No catalog is present and Share Catalog option is set. A new catalog will be created with the default password 'P@ssw0rd'"
+            $CatalogPassword = "P@ssw0rd"
         }
 
         # If catalog is shared and it is already present, skip the creation, otherwise create the catalog
