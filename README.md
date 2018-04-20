@@ -15,6 +15,7 @@ For this task to run you will need "Microsoft.SqlServer.Smo", "Microsoft.SqlServ
 * **SQL User name**:  Provide the SQL login to connect to the SQL Server. The option is only available if SQL Server Authentication mode has been selected.  
 * **SQL Password**: Provide the Password of the SQL login. The option is only available if SQL Server Authentication mode has been selected.
 * **Shared Catalog**: If not selected, prior the deployment of your packages, the catalog will be dropped. If marked as shared (e.g. in case it is used by other applications), the catalog will not be dropped and extra checks will be made during the deployment. In case you marked your catalog as shared but no catalog is present on the server, a new catalog will be created with a catalog password equal to 'P@ssw0rd'
+* **Drop project before deploy**: If selected, before deploying your SSIS package, the corresponding project on the server will be dropped. By default is set to true.
 * **Catalog Password**: Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key. This option is only available if Shared Catalog is not set.
 * **SSIS folder Name**: Folder name in the SSIS Package Store.
 * **Environment configuration file**: Path to the configuration file. Wildcards are not allowed.
@@ -101,6 +102,9 @@ The same values can be passed in also as a json file with the following structur
   }
 ]
 ```
+
+## Release notes
+1.0.4 - Added 'Drop project before deploy' option [#2](https://github.com/mmajcica/DeploySsis/issues/2)
 
 ## Contributing
 
