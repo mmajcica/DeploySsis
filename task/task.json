@@ -16,9 +16,9 @@
       "name": "SSIS"
     },
     {
-        "displayName": "Environment variables",
-        "isExpanded": false,
-        "name": "variables"
+      "displayName": "Environment variables",
+      "isExpanded": false,
+      "name": "variables"
     }
   ],
   "helpMarkDown": "Deploy SSIS ISPACs on your server togheter with environment variables.",
@@ -31,7 +31,7 @@
   "version": {
     "Major": "3",
     "Minor": "1",
-    "Patch": "5"
+    "Patch": "6"
   },
   "minimumAgentVersion": "1.95.1",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
@@ -93,6 +93,15 @@
       "required": false,
       "defaultValue": "true",
       "helpMarkDown": "If catalog is shared, it will not be dropped durig the deployment."
+    },
+    {
+      "groupName":"SSIS",
+      "name": "dropProject",
+      "type": "boolean",
+      "label": "Drop project before deploy",
+      "required": false,
+      "defaultValue": "true",
+      "helpMarkDown": "If selected, before deploying your SSIS package, the corresponding project on the server will be dropped."
     },
     {
       "groupName":"SSIS",

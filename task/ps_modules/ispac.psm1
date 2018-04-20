@@ -314,7 +314,8 @@ function Add-SsisProject()
         [string][parameter(Mandatory = $true)]$ConnectionString,
         [string][parameter(Mandatory = $true)]$CatalogName,
         [string][parameter(Mandatory = $true)]$FolderName,
-        [System.IO.FileInfo][parameter(Mandatory = $true, ValueFromPipeline = $true)]$ProjectFile
+        [System.IO.FileInfo][parameter(Mandatory = $true, ValueFromPipeline = $true)]$ProjectFile,
+        [bool]$DropProject = $true
     )
     BEGIN
     {
@@ -336,7 +337,7 @@ function Add-SsisProject()
 
             $projectName = $ProjectFile.BaseName
 
-            if($folder.Projects[$projectName])
+            if($DropProject -and $folder.Projects[$projectName])
             {
                 Write-Output "Dropping existing project $projectName"
                 $folder.Projects[$projectName].Drop()

@@ -12,6 +12,7 @@ try
     $sqlPassword = Get-VstsInput -Name "sqlPassword"
     $catalogPassword = Get-VstsInput -Name "catalogPassword"
     $sharedCatalog = Get-VstsInput -Name "sharedCatalog" -AsBool
+    $dropProject = Get-VstsInput -Name "dropProject" -AsBool
     $folderName = Get-VstsInput -Name "folderName" -Require
     $environmentsFilePath = Get-VstsInput -Name "environmentsFilePath"
     $defaultWorkingDir = Get-VstsTaskVariable -Name "system.defaultworkingdirectory"
@@ -81,7 +82,7 @@ try
     New-SsisCatalog $connectionString $CatalogName $catalogPassword $sharedCatalog
     New-SsisFolder $connectionString $CatalogName $folderName
 
-    $ispacs | Add-SsisProject $connectionString $CatalogName $folderName
+    $ispacs | Add-SsisProject $connectionString $CatalogName $folderName $dropProject
 
     if ($environmentsFilePath -ne $defaultWorkingDir) #meaning that, if the value is supplied, go for it
     {

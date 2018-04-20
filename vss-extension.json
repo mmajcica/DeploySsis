@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "extensionId": "deploy-ssis",
   "name": "Deploy SSIS",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "mmajcica",
   "description": "Deploy SSIS packages",
   "public": false,
