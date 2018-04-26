@@ -314,8 +314,8 @@ function Add-SsisProject()
         [string][parameter(Mandatory = $true)]$ConnectionString,
         [string][parameter(Mandatory = $true)]$CatalogName,
         [string][parameter(Mandatory = $true)]$FolderName,
-        [System.IO.FileInfo][parameter(Mandatory = $true, ValueFromPipeline = $true)]$ProjectFile,
-        [bool]$DropProject = $true
+        [bool]$DropProject,
+        [System.IO.FileInfo][parameter(Mandatory = $true, ValueFromPipeline = $true)]$ProjectFile
     )
     BEGIN
     {

@@ -31,9 +31,9 @@
   "version": {
     "Major": "3",
     "Minor": "1",
-    "Patch": "6"
+    "Patch": "7"
   },
-  "minimumAgentVersion": "1.95.1",
+  "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
   "inputs": [
     {
