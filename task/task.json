@@ -21,7 +21,7 @@
       "name": "variables"
     }
   ],
-  "helpMarkDown": "Deploy SSIS ISPACs on your server togheter with environment variables.",
+  "helpMarkDown": "Deploy SSIS ISPACs on your server together with environment variables.",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -92,7 +92,7 @@
       "label": "Shared Catalog",
       "required": false,
       "defaultValue": "true",
-      "helpMarkDown": "If catalog is shared, it will not be dropped durig the deployment."
+      "helpMarkDown": "If catalog is shared, it will not be dropped during the deployment."
     },
     {
       "groupName":"SSIS",
