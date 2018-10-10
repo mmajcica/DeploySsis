@@ -31,7 +31,7 @@
   "version": {
     "Major": "3",
     "Minor": "1",
-    "Patch": "7"
+    "Patch": "8"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
@@ -98,6 +98,7 @@
       "groupName":"SSIS",
       "name": "dropProject",
       "type": "boolean",
+      "visibleRule": "sharedCatalog = true",
       "label": "Drop project before deploy",
       "required": false,
       "defaultValue": "true",
