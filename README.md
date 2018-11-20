@@ -78,14 +78,7 @@ The same values can be passed in also as a json file with the following structur
   {
     "name": "MyEnv",
     "description": "My Environments",
-    "referenceOnProjects": [
-      {
-        "name": "BusinessDataVault"
-      },
-      {
-        "name": "Configuration"
-      }
-    ],
+    "referenceOnProjects": [ "BusinessDataVault", "Configuration" ],
     "variables": [
       {
         "name": "CLIENTToDropbox",
