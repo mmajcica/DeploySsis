@@ -11,6 +11,7 @@ try
     $sqlUsername = Get-VstsInput -Name "sqlUsername"
     $sqlPassword = Get-VstsInput -Name "sqlPassword"
     $catalogPassword = Get-VstsInput -Name "catalogPassword"
+    $initialCatalog = Get-VstsInput -Name "initialCatalog"
     $sharedCatalog = Get-VstsInput -Name "sharedCatalog" -AsBool
     $dropProject = Get-VstsInput -Name "dropProject" -AsBool
     $folderName = Get-VstsInput -Name "folderName" -Require
@@ -70,11 +71,11 @@ try
 
     if ($authScheme -eq "windowsAuthentication")
     {
-        $connectionString = Get-SqlConnectionString $InstanceName
+        $connectionString = Get-SqlConnectionString $InstanceName -InitialCatalog $initialCatalog
     }
     else
     {
-        $connectionString = Get-SqlConnectionString $InstanceName -IntegratedSecurity $false -Username $sqlUsername -Password $sqlPassword
+        $connectionString = Get-SqlConnectionString $InstanceName -IntegratedSecurity $false -Username $sqlUsername -Password $sqlPassword -InitialCatalog $initialCatalog
     }
 
     Write-Verbose "Connection string $connectionString"
