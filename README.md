@@ -16,7 +16,7 @@ The different parameters of the task are explained below:
 * **Authentication**: Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, build service account, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and Password have to be provided in the parameters below.
 * **SQL User name**:  Provide the SQL login to connect to the SQL Server. The option is only available if SQL Server Authentication mode has been selected.
 * **SQL Password**: Provide the Password of the SQL login. The option is only available if SQL Server Authentication mode has been selected.
-* **Initial Catalog**: SSISDB catalog name for the Integration Services.  Default to **SSISDB**
+* **Initial Catalog**: SSISDB catalog name for the Integration Services.  Default to **master**
 * **Shared Catalog**: If not selected, prior the deployment of your packages, the catalog will be dropped. If marked as shared (e.g. in case it is used by other applications), the catalog will not be dropped and extra checks will be made during the deployment. In case you marked your catalog as shared but no catalog is present on the server, a new catalog will be created with a catalog password equal to 'P@ssw0rd'
 * **Drop project before deploy**: If selected, before deploying your SSIS package, the corresponding project on the server will be dropped. By default is set to true.
 * **Catalog Password**: Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key. This option is only available if Shared Catalog is not set.

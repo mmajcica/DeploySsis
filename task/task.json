@@ -81,7 +81,7 @@
       "type": "string",
       "label": "SSISDB Catalog Name",
       "required": false,
-      "defaultValue": "SSISDB",
+      "defaultValue": "master",
       "helpMarkDown": "SSIS catalog for Integration Services."
     },  
     {
