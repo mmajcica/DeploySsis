@@ -80,8 +80,8 @@
       "name": "InitialCatalog",
       "type": "string",
       "label": "SSISDB Catalog Name",
-      "required": false,
-      "defaultValue": "master",
+      "required": true,
+      "defaultValue": "",
       "helpMarkDown": "SSIS catalog for Integration Services."
     },  
     {
