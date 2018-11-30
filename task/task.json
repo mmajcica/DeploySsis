@@ -77,6 +77,15 @@
     },
     {
       "groupName":"server",
+      "name": "InitialCatalog",
+      "type": "string",
+      "label": "SSISDB Catalog Name",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": "SSIS catalog for Integration Services."
+    },  
+    {
+      "groupName":"server",
       "name": "SqlPassword",
       "type": "string",
       "label": "SQL Password",
