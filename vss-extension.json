@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "extensionId": "deploy-ssis",
   "name": "Deploy SSIS",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "publisher": "mmajcica",
   "description": "Deploy SSIS packages",
   "public": false,
@@ -30,15 +30,15 @@
       "uri": "http://blog.majcica.com/2018/04/25/deploy-ssis-packages-from-tfs-vsts-build-release/"
     },
     "repository": {
-        "uri": "https://github.com/mmajcica/DeploySsis"
+      "uri": "https://github.com/mmajcica/DeploySsis"
     },
     "issues": {
-        "uri": "https://github.com/mmajcica/DeploySsis/issues"
+      "uri": "https://github.com/mmajcica/DeploySsis/issues"
     }
   },
   "repository": {
-      "type": "git",
-      "uri": "https://github.com/mmajcica/DeploySsis"
+    "type": "git",
+    "uri": "https://github.com/mmajcica/DeploySsis"
   },
   "branding": {
     "color": "#e9ebed",
@@ -46,15 +46,15 @@
   },
   "screenshots": [
     {
-        "path": "images/ssis-task.png"
+      "path": "images/ssis-task.png"
     }
   ],
   "content": {
     "details": {
-        "path": "README.md"
+      "path": "README.md"
     },
     "license": {
-        "path": "LICENSE.txt"
+      "path": "LICENSE.txt"
     }
   },
   "files": [

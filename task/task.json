@@ -30,8 +30,8 @@
   "demands": [],
   "version": {
     "Major": "3",
-    "Minor": "1",
-    "Patch": "8"
+    "Minor": "2",
+    "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
@@ -45,7 +45,7 @@
       "helpMarkDown": "Location of the ISPAC file or on a UNC path like, \\\\\\\\BudgetIT\\Web\\Deploy\\FabrikamDB.ispac. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like $env:windir, $env:systemroot, $env:windir\\FabrikamFibre\\DB. Wildcards can be used. For example, `**/*.ispac` for ISPAC file present in all sub folders."
     },
     {
-      "groupName":"server",
+      "groupName": "server",
       "name": "ServerName",
       "type": "string",
       "label": "Server Name",
@@ -53,20 +53,20 @@
       "helpMarkDown": "Provide the SQL Server name like, machinename\\FabriakmSQL,1433 or localhost or .\\SQL2012R2. Specifying localhost will connect to the Default SQL Server instance on the machine."
     },
     {
-      "groupName":"server",
+      "groupName": "server",
       "name": "AuthScheme",
       "type": "pickList",
       "label": "Authentication",
       "required": true,
       "defaultValue": "windowsAuthentication",
       "options": {
-          "windowsAuthentication": "Windows Authentication",
-          "sqlServerAuthentication": "SQL Server Authentication"
+        "windowsAuthentication": "Windows Authentication",
+        "sqlServerAuthentication": "SQL Server Authentication"
       },
       "helpMarkDown": "Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, build service account, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and Password have to be provided in the parameters below."
     },
     {
-      "groupName":"server",
+      "groupName": "server",
       "name": "SqlUsername",
       "type": "string",
       "label": "SQL User name",
@@ -76,16 +76,16 @@
       "helpMarkDown": "Provide the SQL login to connect to the SQL Server. The option is only available if SQL Server Authentication mode has been selected."
     },
     {
-      "groupName":"server",
+      "groupName": "server",
       "name": "InitialCatalog",
       "type": "string",
       "label": "SSISDB Catalog Name",
       "required": true,
       "defaultValue": "",
       "helpMarkDown": "SSIS catalog for Integration Services."
-    },  
+    },
     {
-      "groupName":"server",
+      "groupName": "server",
       "name": "SqlPassword",
       "type": "string",
       "label": "SQL Password",
@@ -95,7 +95,7 @@
       "helpMarkDown": "Provide the Password of the SQL login. The option is only available if SQL Server Authentication mode has been selected."
     },
     {
-      "groupName":"SSIS",
+      "groupName": "SSIS",
       "name": "sharedCatalog",
       "type": "boolean",
       "label": "Shared Catalog",
@@ -104,7 +104,7 @@
       "helpMarkDown": "If catalog is shared, it will not be dropped during the deployment."
     },
     {
-      "groupName":"SSIS",
+      "groupName": "SSIS",
       "name": "dropProject",
       "type": "boolean",
       "visibleRule": "sharedCatalog = true",
@@ -114,7 +114,7 @@
       "helpMarkDown": "If selected, before deploying your SSIS package, the corresponding project on the server will be dropped."
     },
     {
-      "groupName":"SSIS",
+      "groupName": "SSIS",
       "name": "catalogPassword",
       "type": "string",
       "label": "Catalog Password",
@@ -124,7 +124,7 @@
       "helpMarkDown": "Catalog password protects the database master key that is used for encrypting the catalog data. Save the password in a secure location. It is recommended that you also back up the database master key."
     },
     {
-      "groupName":"SSIS",
+      "groupName": "SSIS",
       "name": "folderName",
       "type": "string",
       "label": "SSIS folder Name",
@@ -133,7 +133,7 @@
       "helpMarkDown": "Folder in the SSIS Package Store."
     },
     {
-      "groupName":"variables",
+      "groupName": "variables",
       "name": "environmentsFilePath",
       "type": "filePath",
       "label": "Environments configuration file",

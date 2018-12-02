@@ -24,6 +24,12 @@ try
     [Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices") | Out-Null
     Import-Module -Name $PSScriptRoot\ps_modules\ispac.psm1
 
+
+    if (-not $initialCatalog)
+    {
+        $initialCatalog = "master"
+    }
+
     Write-Verbose "Finding files with pattern $ispacFilePath"
     $found = Find-VstsFiles -LegacyPattern "$ispacFilePath"
 

@@ -102,6 +102,7 @@ The same values can be passed in also as a json file with the following structur
 
 ## Release notes
 
+* 1.0.8 - Added initial catalog option. [#10](https://github.com/mmajcica/DeploySsis/pull/10) Small fix on referencing [#6](https://github.com/mmajcica/DeploySsis/issues/6)
 * 1.0.6 - Minor adjustments. No changes to the task.
 * 1.0.4 - Added 'Drop project before deploy' option [#2](https://github.com/mmajcica/DeploySsis/issues/2)
 
