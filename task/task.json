@@ -31,7 +31,7 @@
   "version": {
     "Major": "3",
     "Minor": "2",
-    "Patch": "0"
+    "Patch": "1"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",
@@ -80,8 +80,8 @@
       "name": "InitialCatalog",
       "type": "string",
       "label": "SSISDB Catalog Name",
-      "required": true,
-      "defaultValue": "",
+      "required": false,
+      "defaultValue": "master",
       "helpMarkDown": "SSIS catalog for Integration Services."
     },
     {
