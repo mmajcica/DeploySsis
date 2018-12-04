@@ -2,7 +2,7 @@
   "id": "2ac2b060-978b-11e7-84a3-f5c70df70787",
   "name": "DeployIsPacs",
   "friendlyName": "Deploy ISPACs",
-  "description": "Deploy your ISPACs to SQL Server",
+  "description": "Deploy your ISPACs to SQL SSIS Server",
   "author": "Mario Majcica",
   "groups": [
     {
