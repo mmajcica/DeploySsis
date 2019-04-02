@@ -420,9 +420,9 @@ function New-SsisEnvironment()
 
                 if ($project)
                 {
-                    if ($project.References[$EnvironmentName])
+                    if ($project.References.Name -contains $EnvironmentName)
                     {
-                        Write-Verbose "Project reference for the environment $EnvironmentName already exists"
+                        Write-Verbose "Project reference for the environment $EnvironmentName already exists."
                     }
                     else                        
                     {

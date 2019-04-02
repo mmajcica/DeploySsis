@@ -1,7 +1,7 @@
 {
   "id": "2ac2b060-978b-11e7-84a3-f5c70df70787",
   "name": "DeployIsPacs",
-  "friendlyName": "Deploy ISPACs",
+  "friendlyName": "Deploy ISPACs (SQL SSIS)",
   "description": "Deploy your ISPACs to SQL SSIS Server",
   "author": "Mario Majcica",
   "groups": [
@@ -31,7 +31,7 @@
   "version": {
     "Major": "3",
     "Minor": "2",
-    "Patch": "1"
+    "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Deploy ISPACs from $(ispacFilePath)",

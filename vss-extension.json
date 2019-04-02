@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "extensionId": "deploy-ssis",
   "name": "Deploy SSIS",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "publisher": "mmajcica",
   "description": "Deploy SSIS packages",
   "public": false,
@@ -14,7 +14,7 @@
     "large": "images/logo-large.png"
   },
   "categories": [
-    "Build and release"
+    "Azure Pipelines"
   ],
   "tags": [
     "SQL Server Integration Services",
