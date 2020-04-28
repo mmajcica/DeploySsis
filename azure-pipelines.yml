@@ -1,0 +1,90 @@
+name: 1.$(Year:yy).$(DayOfYear).$(Rev:r)
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    continueOnError: false
+    steps:
+    - task: TfxInstaller@2
+      inputs:
+        version: 'v0.7.x'
+    - task: PackageAzureDevOpsExtension@2
+      inputs:
+        rootFolder: '$(Build.SourcesDirectory)'
+        outputPath: '$(Build.ArtifactStagingDirectory)/Extension'
+        extensionVersion: '$(Build.BuildNumber)'
+        updateTasksVersion: false
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/Extension'
+        artifact: 'Extension'
+        publishLocation: 'pipeline'
+
+- stage: Test
+  condition: succeeded('Build')
+  jobs:
+  - deployment: Deploy
+    continueOnError: false
+    environment: Marketplace Test
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              targetPath: '$(Pipeline.Workspace)'
+          - task: TfxInstaller@2
+            inputs:
+              version: 'v0.7.x'
+          - task: PublishAzureDevOpsExtension@2
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'Marketplace Test'
+              fileType: 'vsix'
+              vsixFile: '$(Pipeline.Workspace)/Extension/*.vsix'
+              publisherId: 'mmajcica-test2'
+              extensionTag: '-test'
+              extensionName: 'Deploy SSIS - Test'
+              extensionVisibility: 'private'
+              shareWith: 'mummy-test'
+          - task: InstallAzureDevOpsExtension@2
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'Marketplace Test'
+              method: 'id'
+              publisherId: 'mmajcica-test2'
+              extensionId: 'deploy-ssis'
+              extensionTag: '-test'
+              accounts: 'https://dev.azure.com/mummy-test'
+
+- stage: Production
+  condition: succeeded('Test')
+  jobs:
+  - deployment: Deploy
+    continueOnError: false
+    environment: Marketplace
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              targetPath: '$(Pipeline.Workspace)'
+          - task: TfxInstaller@2
+            inputs:
+              version: 'v0.7.x'
+          - task: PublishAzureDevOpsExtension@2
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'Marketplace'
+              fileType: 'vsix'
+              vsixFile: '$(Pipeline.Workspace)/Extension/*.vsix'
