@@ -111,3 +111,5 @@ The same values can be passed in also as a json file with the following structur
 ## Contributing
 
 Feel free to notify any issue in the issues section of this GitHub repository.
+
+[![Build Status](https://dev.azure.com/mummy/Azure%20DevOps%20Extensions/_apis/build/status/mmajcica.DeploySsis?branchName=master)](https://dev.azure.com/mummy/Azure%20DevOps%20Extensions/_build/latest?definitionId=45&branchName=master)
